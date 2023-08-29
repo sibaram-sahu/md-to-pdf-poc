@@ -27,10 +27,11 @@ export class MarkdownToPdfComponent {
     // Converting the text to html tag
     this.htmlContent = md.render(this.preprocessMarkdownText);
 
+    let filename = "custom-pdf.pdf"
     // Downloading the html file
     let val = htmlToPdfmake(this.htmlContent);
     let dd = {content:val};
-    pdfMake.createPdf(dd).download();
+    pdfMake.createPdf(dd).download(filename);
   }
 
   preprocessMarkdown(markdown: string): string {
